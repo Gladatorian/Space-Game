@@ -4,21 +4,23 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class HUD {
-	
+
 	public static int HEALTH = 100;
 
 	public void tick() {
-		HEALTH--;
 
 		HEALTH = Game.clamp(HEALTH, 0, 100);
+		
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.gray);
+
+		// health bar
+		g.setColor(new Color(150, 150, 150, 55));
 		g.fillRect(15, 15, 200, 32);
-		g.setColor(Color.green);
+		g.setColor(new Color(0, 255, 0, 155));
 		g.fillRect(15, 15, HEALTH * 2, 32);
-		g.setColor(Color.white);
+		g.setColor(new Color(255, 255, 255, 255));
 		g.drawRect(15, 15, 200, 32);
 	}
 }

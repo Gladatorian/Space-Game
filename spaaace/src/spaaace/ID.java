@@ -2,6 +2,6 @@ package spaaace;
 
 public enum ID {
 
-	Player(), Enemy();
+	Player(), Trail(), Enemy();
 
 }

@@ -24,11 +24,11 @@ public class Game extends Canvas implements Runnable {
 		this.addKeyListener(new KeyInput(handler));
 
 		new Window(WIDTH, HEIGHT, "Spaaace", this);
-		
+
 		hud = new HUD();
 		r = new Random();
 
-		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
+		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));
 		handler.addObject(new Enemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.Enemy));
 	}
 
@@ -94,13 +94,13 @@ public class Game extends Canvas implements Runnable {
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 
 		handler.render(g);
-		
+
 		hud.render(g);
 
 		g.dispose();
 		bs.show();
 	}
-	
+
 	public static int clamp(int var, int min, int max) {
 		if (var >= max)
 			return var = max;

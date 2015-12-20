@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
@@ -14,22 +15,32 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private boolean running = false;
+	public BufferedImage background = null;
 
 	private Random r;
 	private Handler handler;
 	private HUD hud;
 
+	// SOURCE OF THIS CODE:
+	// https://www.youtube.com/user/RealTutsGML/
 	public Game() {
 		handler = new Handler();
-		this.addKeyListener(new KeyInput(handler));
+		this.addKeyListener(new KeyInput(handler));// initialization of key listener
 
-		new Window(WIDTH, HEIGHT, "Spaaace", this);
+		new Window(WIDTH, HEIGHT, "Spaaace", this);// makes window
 
-		hud = new HUD();
-		r = new Random();
+		hud = new HUD();// new instance of HUD
+		r = new Random();// new instance of random
 
-		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));
-		handler.addObject(new Enemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.Enemy, handler));
+		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));// 
+//		handler.addObject(new Enemy(r.nextInt(WIDTH)-1, r.nextInt(HEIGHT)-1, ID.Enemy, handler));
+//		int randx = 411;// DO NOT GO PAST 624
+//		int randy = 445;// DO NOT GO PAST 445
+		int randx = r.nextInt(WIDTH-11)-5;// negative bounds -5
+		int randy = r.nextInt(HEIGHT-30)-5;// negative bounds -5
+		handler.addObject(new Enemy(randx, randy, ID.Enemy, handler));
+		System.out.println("(640) Start X: "+randx);
+		System.out.println("(480) Start Y: "+randy);
 	}
 
 	public synchronized void start() {
@@ -69,7 +80,7 @@ public class Game extends Canvas implements Runnable {
 
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				System.out.println("FPS: " + frames);
+//				System.out.println("FPS: " + frames);
 				frames = 0;
 			}
 		}

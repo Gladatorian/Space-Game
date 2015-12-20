@@ -17,10 +17,10 @@ public class HUD {
 
 		// health bar
 		g.setColor(new Color(150, 150, 150, 55));
-		g.fillRect(15, 15, 200, 32);
+		g.fillRect(15, 15, 400, 32);
 		g.setColor(new Color(0, 255, 0, 155));
-		g.fillRect(15, 15, HEALTH * 2, 32);
+		g.fillRect(15, 15, HEALTH * 4, 32);
 		g.setColor(new Color(255, 255, 255, 255));
-		g.drawRect(15, 15, 200, 32);
+		g.drawRect(15, 15, 400, 32);
 	}
 }

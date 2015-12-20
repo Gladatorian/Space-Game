@@ -32,13 +32,13 @@ public class Game extends Canvas implements Runnable {
 		hud = new HUD();// new instance of HUD
 		r = new Random();// new instance of random
 
-		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));// 
+		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.PLAYER, handler));// 
 //		handler.addObject(new Enemy(r.nextInt(WIDTH)-1, r.nextInt(HEIGHT)-1, ID.Enemy, handler));
 //		int randx = 411;// DO NOT GO PAST 624
 //		int randy = 445;// DO NOT GO PAST 445
 		int randx = r.nextInt(WIDTH-11)-5;// negative bounds -5
 		int randy = r.nextInt(HEIGHT-30)-5;// negative bounds -5
-		handler.addObject(new Enemy(randx, randy, ID.Enemy, handler));
+		handler.addObject(new Enemy(randx, randy, ID.ENEMY, handler));
 		System.out.println("(640) Start X: "+randx);
 		System.out.println("(480) Start Y: "+randy);
 	}

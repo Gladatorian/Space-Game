@@ -39,8 +39,9 @@ public class Game extends Canvas implements Runnable {
 		int randx = r.nextInt(WIDTH-11)-5;// negative bounds -5
 		int randy = r.nextInt(HEIGHT-30)-5;// negative bounds -5
 		handler.addObject(new Enemy(randx, randy, ID.ENEMY, handler));
-		System.out.println("(640) Start X: "+randx);
-		System.out.println("(480) Start Y: "+randy);
+		// debug
+//		System.out.println("(640) Start X: "+randx);
+//		System.out.println("(480) Start Y: "+randy);
 	}
 
 	public synchronized void start() {
